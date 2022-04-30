@@ -4,6 +4,8 @@ IndMiner is propably the fastest walletminer out there, built using C# (.net 4.7
 
 Precompiled version should be there, if you don't want to use it then compile yourself (recommended due to antivirus false positives).
 
+I am **not** affiliated with the IndMiner Developers!
+
 ## Files in this repo
 **[wallets.ind](https://github.com/OlMi1/indminer/blob/main/wallets.ind)** The database used to check for a balance
 
