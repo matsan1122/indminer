@@ -6,7 +6,7 @@ Precompiled version should be there, if you don't want to use it then compile yo
 
 ## Webhook & Hit Behaviour
 
-When a hit is experienced, a webhook with the private key is sent to you. Also, the private key is written to file.
+When a hit is experienced, a webhook with the private key is sent to you. Also, the private key is written to file (Name structure: "hit-[unix].txt").
 
 ![image](https://user-images.githubusercontent.com/64090338/166115824-ae177ed0-1ed7-435f-a008-0b0a8b5271c9.png)
 
