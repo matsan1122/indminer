@@ -4,14 +4,19 @@ IndMiner is propably the fastest walletminer out there, built using C# (.net 4.7
 
 Precompiled version should be there, if you don't want to use it then compile yourself (recommended due to antivirus false positives).
 
-I am **not** affiliated with the IndMiner Developers!
+## Webhook & Hit Behaviour
+
+When a hit is experienced, a webhook with the private key is sent to you. Also, the private key is written to file.
+
+![image](https://user-images.githubusercontent.com/64090338/166115824-ae177ed0-1ed7-435f-a008-0b0a8b5271c9.png)
+
 
 ## Files in this repo
 **[wallets.ind](https://github.com/OlMi1/indminer/blob/main/wallets.ind)** The database used to check for a balance
 
 **[genAddressDB.py](https://github.com/OlMi1/indminer/blob/main/genAddressDB.py)** Small python script to generate your own wallets.ind
 
-The rest should be self explanatory
+The rest should be self explanatory.
 
 ## Donate
 
