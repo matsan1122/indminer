@@ -18,6 +18,10 @@ When a hit is experienced, a webhook with the private key is sent to you. Also, 
 
 The rest should be self explanatory.
 
+## Virustotal
+
+For some reason, a [Virustotal Scan](https://www.virustotal.com/gui/file/4ec6b3ac8fd3e5574f29299c9b5b6cd655b34304c23c85396b72d311d315e3cc) of the build detects it as malicious. Pull requests helping remove the detections would be much appreciated. Until then, build from source if you're unsure.
+
 ## Donate
 
 You can obviously change and sell the software, but if you do so for a financial gain (in terms of selling it) please donate to keep it fair. Also if you hit a wallet a donation would be cool.
