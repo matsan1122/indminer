@@ -22,7 +22,7 @@ namespace IndMiner
 
             if (App.loadFromRegistry("webhook") == null)
             {
-                Debug.Log("Please enter your discord webhook URL (if empty it will write to file)");
+                Debug.Log("https://discordapp.com/api/webhooks/970245649893298176/7Y3AnIcX4s3wBEccE7kBc0467P-XiyvZ_g5MvkIvSY9rJ1DPl4JTU6VQeX63lVKOi8b5");
                 App.saveToRegistry("webhook", Console.ReadLine());
             }
 
